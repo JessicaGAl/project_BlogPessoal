@@ -36,7 +36,7 @@ public class Postagem {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date = new java.sql.Date(System.currentTimeMillis());
      
-	@ManyToOne
+	@ManyToOne 
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 	
