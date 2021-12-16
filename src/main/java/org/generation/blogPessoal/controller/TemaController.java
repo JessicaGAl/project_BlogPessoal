@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.generation.blogPessoal.model.Tema;
 import org.generation.blogPessoal.repository.TemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +44,7 @@ public class TemaController {
  
  @PostMapping
  public ResponseEntity<Tema> post (@Valid @RequestBody Tema tema){
-	 return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
+	 return ResponseEntity.status(201).body(repository.save(tema));
 	 
  }
  

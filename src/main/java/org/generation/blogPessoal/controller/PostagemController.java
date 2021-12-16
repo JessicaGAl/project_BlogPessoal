@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.generation.blogPessoal.model.Postagem;
 import org.generation.blogPessoal.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,12 +44,12 @@ public class PostagemController {
 	
 	@PostMapping
 	public ResponseEntity<Postagem> post (@Valid @RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
+		return ResponseEntity.status(201).body(repository.save(postagem));
 	}
 
 	@PutMapping
 	public ResponseEntity<Postagem> put (@Valid @RequestBody Postagem postagem) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+		return ResponseEntity.status(200).body(repository.save(postagem));
 	}
 
     @DeleteMapping ("/{id}")

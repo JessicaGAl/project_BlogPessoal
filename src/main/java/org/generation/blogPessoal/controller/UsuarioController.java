@@ -2,11 +2,12 @@ package org.generation.blogPessoal.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.generation.blogPessoal.model.UserLogin;
 import org.generation.blogPessoal.model.Usuario;
 import org.generation.blogPessoal.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,13 +26,13 @@ public class UsuarioController {
 	private UsuarioService usuarioService; 
 	
 	@PostMapping("/logar")
-	public ResponseEntity<UserLogin> Autentication (@RequestBody Optional<UserLogin> user) {
-		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok (resp)).orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	public ResponseEntity<UserLogin> login (@Valid @RequestBody Optional<UserLogin> user) {
+		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok (resp)).orElse(ResponseEntity.status(401).build());
 	}
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> Post (@RequestBody Usuario usuario) {
-		return  ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.CadastrarUsuario(usuario));
+	public ResponseEntity<Usuario> register (@Valid @RequestBody Usuario usuario) {
+		return  ResponseEntity.status(201).body(usuarioService.CadastrarUsuario(usuario));
 	}
 }
 
