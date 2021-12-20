@@ -24,13 +24,13 @@ public class SwaggerConfiguration {
 						.version("v0.0.1")
 						.license(new License()
 							.name("Blog Pessoal")
-							.url("https://brazil.genetation.org/"))
+							.url("https://brazil.generation.org/"))
 						.contact(new Contact()
 								.name("Github JessicaGAl")
 								.url("https://github.com/JessicaGAl.git")
 								.email("jessyg19@hotmail.com")))
 				.externalDocs(new ExternalDocumentation()
-						.description("Github Proect")
+						.description("Github Project")
 						.url("https://github.com/JessicaGAl/project_BlogPessoal.git"));
 	}
 	
