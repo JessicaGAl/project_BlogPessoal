@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -16,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{ 
 
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserDetailsService service;
   
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -28,7 +29,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 
 		auth.userDetailsService(service);
 
-		auth.inMemoryAuthentication().withUser("jessie").password(passwordEncoder().encode("jessieboaz"))
+		auth.inMemoryAuthentication().withUser("jessi").password(passwordEncoder().encode("jessboaz"))
 				.authorities("ROLE_ADMIN");
 	}
 
