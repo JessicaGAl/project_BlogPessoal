@@ -23,9 +23,10 @@ public class UsuarioRepositoryTest {
 	
 	@BeforeAll 
 	void start() {
-		usuarioRepository.save(new Usuario(0L, "Carla Dias", "calinha@email.com", "123456"));
-		usuarioRepository.save(new Usuario(0L, "Sarah Queiroz", "sarah@email.com", "123456"));
-		usuarioRepository.save(new Usuario(0L, "Pedro Dias", "pedro@email.com", "123456"));
+		usuarioRepository.save(new Usuario(0L, "Carla Dias", "calinha@email.com", "12345f6", "hhh"));
+		usuarioRepository.save(new Usuario(0L, "Sarah Queiroz", "sarah@email.com", "1234f56", "hhh"));
+		usuarioRepository.save(new Usuario(0L, "Pedro Dias", "pedro@email.com", "12345f6", "hhh"));
+		
 		
 	}
 	
